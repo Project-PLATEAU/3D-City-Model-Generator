@@ -120,6 +120,7 @@
 | OS        | Ubuntu 20.08      |  同左 | 
 | GPU       | メモリ16GB以上 | NVIDIA A100推奨   | 
 | Python | Anaconda     | 同左   | 
+| CUDA   | CUDA>=10.2     | CUDA==12.1  | 
 
 ## 7. 本リポジトリのフォルダ構成 <!-- 本GitHub上のソースファイルの構成を記載ください。 -->
 
