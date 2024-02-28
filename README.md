@@ -14,9 +14,9 @@
 
 ## 3. 利用手順 
 
-本システムの構築手順及び利用手順については[利用チュートリアル](https://docs.google.com/presentation/d/15mBgypzA_5PF_W0cYhF38ufrqA9DkjUq/edit?usp=drive_link&ouid=106695165974698350064&rtpof=true&sd=true)を参照してください。
+本システムの構築手順及び利用手順については[利用チュートリアル](https://cbzhao2021.github.io/gen3D_virtualCity)を参照してください。
 
-## 4. システム概要 
+## 4. 機能一覧
 
 ### 【3D都市モデル生成】
 
@@ -64,7 +64,7 @@
 
 - 生成した3D都市モデルはツール上で可視化されます。
 
-## 5. 利用ライブラリ
+## 5. 利用技術
 
 
 | ID     | 名称       | 内容                                                                                                                       |
