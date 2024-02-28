@@ -171,7 +171,7 @@ class genBuilding:
 
         self.obj_mes = pd.read_csv(bdg_obj_label_path)
         self.obj_type = self.obj_mes['type'].values
-        self.obj_type = self.type_map_bdg(self.obj_type)
+        # self.obj_type = self.type_map_bdg(self.obj_type)
         self.obj_root = bdg_obj_root
 
         self.low_storey = low_storey
