@@ -1,0 +1,7 @@
+# ninja log v5
+3	4761	1705634376000000000	/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/build/temp.linux-x86_64-cpython-39/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/src/cpu/dcnv3_cpu.o	829cea211c52d6b9
+4	13192	1705634384000000000	/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/build/temp.linux-x86_64-cpython-39/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/src/vision.o	1a4d3e7f9d8fa6d
+4	41457	1705634413000000000	/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/build/temp.linux-x86_64-cpython-39/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/src/cuda/dcnv3_cuda.o	5b142ced4ebc8bea
+10	4164	1706767584	/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/build/temp.linux-x86_64-cpython-39/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/src/cpu/dcnv3_cpu.o	829cea211c52d6b9
+10	13442	1706767593	/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/build/temp.linux-x86_64-cpython-39/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/src/vision.o	1a4d3e7f9d8fa6d
+10	46069	1706767626	/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/build/temp.linux-x86_64-cpython-39/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/src/cuda/dcnv3_cuda.o	5b142ced4ebc8bea

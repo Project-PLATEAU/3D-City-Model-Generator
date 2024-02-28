@@ -1,0 +1,4 @@
+# ninja log v5
+1	5000	1705627572000000000	/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/build/temp.linux-x86_64-3.9/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/src/cpu/dcnv3_cpu.o	7c08ee9c7eb53274
+2	13644	1705627581000000000	/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/build/temp.linux-x86_64-3.9/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/src/vision.o	fed9cc8520126470
+1	41408	1705627609000000000	/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/build/temp.linux-x86_64-3.9/fast/zcb/code/mdx/InternImage/segmentation/ops_dcnv3/src/cuda/dcnv3_cuda.o	49761183bec8dce
