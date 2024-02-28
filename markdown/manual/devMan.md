@@ -42,7 +42,7 @@ conda env create -f environment.yaml
 conda activate gen3d
 ```
 
-## 深層学習相関ライブラリインストール
+## 深層学習ライブラリインストール
 ```
 conda install -c conda-forge cudatoolkit-dev=11.3 -y
 conda install -c　yacs -y
