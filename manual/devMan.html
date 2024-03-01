@@ -116,10 +116,10 @@
 </tbody>
 </table>
 <h1 id="3-環境構築及びライブラリインストール手順">3 環境構築及びライブラリインストール手順</h1>
-<p>##GPU計算環境構築
+<p>##　GPU計算環境構築
 公式チュートリアルを従ってCUDA10.2以上及びCUDNN7以上をインストール
 <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html">https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html</a></p>
-<p>##Anacondaインストール</p>
+<p>##　Anacondaインストール</p>
 <p><a href="https://www.anaconda.com/download">https://www.anaconda.com/download</a></p>
 <p>対応するシステムのバージョンをダウンロードした後、指示に従って直接インストール</p>
 <p>Anacondaを環境変数として設定</p>
@@ -130,7 +130,7 @@ source ~/.bashrc
 <pre><code>conda env create -f environment.yaml
 conda activate gen3d
 </code></pre>
-<h2 id="深層学習相関ライブラリインストール">深層学習相関ライブラリインストール</h2>
+<h2 id="深層学習ライブラリインストール">深層学習ライブラリインストール</h2>
 <pre><code>conda install -c conda-forge cudatoolkit-dev=11.3 -y
 conda install -c　yacs -y
 pip install -U openmim
@@ -223,7 +223,7 @@ sh ./make.sh
 </tr>
 </tbody>
 </table>
-<p>データを準備した後、ファイル構造は以下のように：</p>
+<p>データ準備完了後、ファイル構造は以下の通りです：</p>
 <p>仮想都市</p>
 <pre><code>gen3D_virtualCity
 └── data

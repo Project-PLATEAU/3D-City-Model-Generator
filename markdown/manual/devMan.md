@@ -20,11 +20,11 @@
 
 # 3 環境構築及びライブラリインストール手順
 
-##GPU計算環境構築
+##　GPU計算環境構築
 公式チュートリアルを従ってCUDA10.2以上及びCUDNN7以上をインストール
 https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
 
-##Anacondaインストール
+##　Anacondaインストール
 
 https://www.anaconda.com/download
 
@@ -78,7 +78,7 @@ sh ./make.sh
 | ⑩   | 深層学習道路自動抽出モデル            | 道路生成（実都市）  | .pth     |
 | ⑪   | 生成式AI建物生成モデル             | 建物生成（実都市）  | .ckpt    |
 
-データを準備した後、ファイル構造は以下のように：
+データ準備完了後、ファイル構造は以下の通りです：
 
 仮想都市
 ```
