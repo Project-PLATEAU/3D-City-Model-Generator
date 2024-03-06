@@ -14,7 +14,7 @@
 
 ## 3. 利用手順 
 
-本システムの構築手順及び利用手順については[利用チュートリアル](https://cbzhao2021.github.io/gen3D_virtualCity)を参照してください。
+本システムの構築手順及び利用手順については[利用チュートリアル](https://project-plateau.github.io/3D-City-Model-Generator)を参照してください。
 
 ## 4. システム概要
 
