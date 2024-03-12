@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
+from PIL import Image
 from tqdm import tqdm
 from lxml import etree
 from earcut.earcut import earcut
@@ -818,6 +819,12 @@ class genRoad:
         elif device_lod == 2:
             self.gen_device_lod2(self.roi_road)
         road_ori = self.mesh_road.copy()
+
+        feat_color_road = (253, 253, 230, 30)
+        feat_color_device = (240, 128, 128, 255)
+        self.mesh_road = obj_color(self.mesh_road,feat_color_road)
+        self.mesh_device = obj_color(self.mesh_device,feat_color_device)
+
         self.mesh_road += self.mesh_device
         self.add_relief(points_relief)
         if save_gml:
@@ -1160,6 +1167,17 @@ def relief_interpolate(mesh_list, points_relief):
     return z_points_interpolate
 
 
+def obj_color(mesh_list, feat_color):
+    width, height = 10, 10
+    im = Image.new('RGBA', (width, height), feat_color)
+    material = trimesh.visual.texture.SimpleMaterial(image=im)
+    for x in range(len(mesh_list)):
+        uv = np.random.rand(mesh_list[x].vertices.shape[0], 2)
+        color_visuals = trimesh.visual.TextureVisuals(uv=uv, image=im, material=material)
+        mesh_list[x] = trimesh.Trimesh(vertices=mesh_list[x].vertices, faces=mesh_list[x].faces,
+                                       visual=color_visuals, validate=True, process=False)
+    return mesh_list
+
 def save_citygml(root, file_name):
     tree = etree.ElementTree(root)
     tree.write(file_name, pretty_print=True, xml_declaration=True, encoding='UTF-8')
@@ -1270,6 +1288,17 @@ def main():
     mesh_vege = gen_vege.gen_vege_run(road_limit, bdg_limit, x_rand, y_rand, points_relief=points_relief,
                                       lod_level=lod_vegetation, gml_root=output_root)
 
+    feat_color_bldg = (157, 195, 230, 255)
+    feat_color_vege = (137, 179, 95, 255)
+    feat_color_relief = (53, 53, 53, 255)
+
+    mesh_building = obj_color(mesh_building, feat_color_bldg)
+    mesh_vege = obj_color(mesh_vege, feat_color_vege)
+    mesh_relief = obj_color([mesh_relief], feat_color_relief)
+
+    for x in range(len(mesh_road)):
+        mesh_road[x].vertices[:,2]+=1.
+
     res = mesh_relief + mesh_building + mesh_road + mesh_vege
     combined_mesh = trimesh.util.concatenate(res)
 
@@ -1279,4 +1308,8 @@ def main():
 
 
 if __name__ == "__main__":
+    import time
+    s=time.time()
     main()
+    e=time.time()
+    print(e-s)

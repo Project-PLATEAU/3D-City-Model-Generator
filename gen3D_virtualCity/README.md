@@ -4,6 +4,9 @@ Generate .obj and CityGML(.gml) files for virtual city 3D scene
 
 Results
 ---------------------
+visualization of generated virtual city 3D scene (with relief, different color for features)
+![without relief](./res_example/color_render.jpg)
+
 visualization of generated virtual city 3D scene (without relief)
 ![without relief](./res_example/wo_relief_1024.jpg)
 
