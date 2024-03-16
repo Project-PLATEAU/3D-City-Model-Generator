@@ -1,0 +1,38 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+
+# Camera calibration and distortion parameters (OpenCV)
+Camera.type : "PinHole"
+Camera.width : 1920
+Camera.height : 1080
+
+Camera.fx: 1357.93
+Camera.fy: 1352.80517218
+Camera.cx: 951.159
+Camera.cy: 540.922
+
+Camera.k1: 0.0646989
+Camera.k2: -0.0761136
+Camera.p1: 0.0
+Camera.p2: 0.0
+Camera.k3: 0.000000
+
+# Transformation from camera to body-frame (imu)
+Tbc: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   data: [-0.00628759, -0.999980, 0.000207, -0.018086,
+         -0.99997624, 0.006287, -0.002826, 0.037141,
+         0.00282499, -0.000224, -0.999996, 0.134161,
+         0.00000000, 0.000000, 0.000000, 1.000000]
+
+IMU.NoiseGyro: 0.00033137989 # 6.627597943970879e-05  # rad/s^0.5
+IMU.NoiseAcc: 0.00299082663 # 0.000598165327491887 # m/s^1.5
+IMU.GyroWalk: 8.393335575768302e-06 # 8.393335575768302e-07  rad/s^1.5
+IMU.AccWalk:  0.0014833570128127785 # 0.00014833570128127785 m/s^2.5
+IMU.Frequency: 240.0
+

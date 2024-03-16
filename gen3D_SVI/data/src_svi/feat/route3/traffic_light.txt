@@ -1,0 +1,2 @@
+## Latitude Longitude Altitude Width Height Azimuth
+35.632004 139.692878 69.414427 1.194026 0.724303 65.226601
