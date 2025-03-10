@@ -1,5 +1,5 @@
 {
-  "source_base_path": "C:/zcb/data/plateau/code/gh-pages/markdown",
+  "source_base_path": "C:/zcb/code/python/git/gen3D_virtualCity/markdown",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -229,6 +229,16 @@
       "output": {
         "resource": {
           "relative_path": "resources/envs/environment.yml"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/fig01.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/fig01.png"
         }
       },
       "version": ""
