@@ -1,0 +1,140 @@
+{
+    "pipeline": {
+        "input": [
+            "img"
+        ],
+        "output": [
+            "post_output"
+        ],
+        "tasks": [
+            {
+                "type": "Task",
+                "module": "Transform",
+                "name": "Preprocess",
+                "input": [
+                    "img"
+                ],
+                "output": [
+                    "prep_output"
+                ],
+                "transforms": [
+                    {
+                        "type": "LoadImageFromFile"
+                    },
+                    {
+                        "type": "Resize",
+                        "keep_ratio": false,
+                        "size": [
+                            512,
+                            512
+                        ]
+                    },
+                    {
+                        "type": "Normalize",
+                        "mean": [
+                            123.675,
+                            116.28,
+                            103.53
+                        ],
+                        "std": [
+                            58.395,
+                            57.12,
+                            57.375
+                        ],
+                        "to_rgb": true
+                    },
+                    {
+                        "type": "ImageToTensor",
+                        "keys": [
+                            "img"
+                        ]
+                    },
+                    {
+                        "type": "Collect",
+                        "keys": [
+                            "img"
+                        ],
+                        "meta_keys": [
+                            "ori_shape",
+                            "img_norm_cfg",
+                            "img_shape",
+                            "flip_direction",
+                            "valid_ratio",
+                            "pad_shape",
+                            "ori_filename",
+                            "scale_factor",
+                            "flip",
+                            "filename"
+                        ]
+                    }
+                ],
+                "sha256": "c8adc48358b370664e7632c0b10f15c0bfc6b698a862184d4ea20dc80787da1d",
+                "fuse_transform": false
+            },
+            {
+                "name": "uper",
+                "type": "Task",
+                "module": "Net",
+                "is_batched": false,
+                "input": [
+                    "prep_output"
+                ],
+                "output": [
+                    "infer_output"
+                ],
+                "input_map": {
+                    "img": "input"
+                },
+                "output_map": {}
+            },
+            {
+                "type": "Task",
+                "module": "mmseg",
+                "name": "postprocess",
+                "component": "ResizeMask",
+                "params": {
+                    "type": "UPerHead",
+                    "in_channels": [
+                        160,
+                        320,
+                        640,
+                        1280
+                    ],
+                    "in_index": [
+                        0,
+                        1,
+                        2,
+                        3
+                    ],
+                    "pool_scales": [
+                        1,
+                        2,
+                        3,
+                        6
+                    ],
+                    "channels": 512,
+                    "dropout_ratio": 0.1,
+                    "num_classes": 2,
+                    "norm_cfg": {
+                        "type": "SyncBN",
+                        "requires_grad": true
+                    },
+                    "align_corners": false,
+                    "loss_decode": {
+                        "type": "CrossEntropyLoss",
+                        "use_sigmoid": false,
+                        "loss_weight": 1.0
+                    },
+                    "with_argmax": true
+                },
+                "output": [
+                    "post_output"
+                ],
+                "input": [
+                    "prep_output",
+                    "infer_output"
+                ]
+            }
+        ]
+    }
+}
