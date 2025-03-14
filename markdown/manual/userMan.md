@@ -21,13 +21,13 @@ http://gen3d.sekilab.global/
 
 ## 3 沿道パラメータ抽出
 
-抽出ルートを設定します。実行は約40分かかります。
+抽出ルートを設定します。実行には約40分かかります。
 
 ![set_route](../resources/userMan/fig04.png)
 
 ## 4 三次元都市モデル生成
 
-衛星画像を入力し(.tif)、生成LoDを設定ます。実行は約10-15分かかります。
+衛星画像を入力し(.tif)、生成LoDを設定ます。実行には約10-15分かかります。
 
 ![set_lod_input](../resources/userMan/fig05.png)
 
