@@ -146,4 +146,4 @@
 
 ## 10. 参考資料
 
-- PLATEAU Webサイトの Use Case ページ「3D都市モデル生成シミュレータ」: [https://www.mlit.go.jp/plateau/use-case/dt23-06/](https://www.mlit.go.jp/plateau/use-case/dt23-06/)
+- PLATEAU Webサイトの Use Case ページ「3D都市モデル生成シミュレータ」: [http://gen3d.sekilab.global/](https://www.mlit.go.jp/plateau/use-case/dt23-06/)
