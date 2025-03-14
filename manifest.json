@@ -1,5 +1,5 @@
 {
-  "source_base_path": "C:/zcb/code/python/git/gen3D_virtualCity/markdown",
+  "source_base_path": "C:/zcb/code/python/local/3D-City-Model-Generator/markdown",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -279,6 +279,66 @@
       "output": {
         "resource": {
           "relative_path": "resources/sample1.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/fig01.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/fig01.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/fig02.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/fig02.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/fig03.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/fig03.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/fig04.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/fig04.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/fig05.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/fig05.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/userMan/fig06.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/userMan/fig06.png"
         }
       },
       "version": ""

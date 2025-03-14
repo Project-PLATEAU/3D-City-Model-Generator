@@ -79,50 +79,26 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="操作マニュアル">操作マニュアル</h1>
 
-<h2 id="1-本書について">1 本書について</h2>
+<h2 id="本書について">本書について</h2>
 <p>本書では、3D都市モデル生成シミュレータシステム（以下「本システム」という。）の操作手順について記載しています。</p>
 <h3 id="3d都市モデル生成までの流れ">3D都市モデル生成までの流れ</h3>
-<p><img src="../resources/userMan/user01.png" alt="total_workflow"></p>
-<h2 id="2-機能選択">2 機能選択</h2>
+<p><img src="../resources/userMan/fig01.png" alt="total_workflow"></p>
+<h2 id="1-機能選択">1 機能選択</h2>
 <p>① デジタルシティサービスにアクセスし、“3D都市モデル生成シュミレーター”をクリックし、生成を行う画面へ移動
-<a href="https://aigidjp.github.io/digitalcity_3D_city_model_simulator/">https://aigidjp.github.io/digitalcity_3D_city_model_simulator/</a></p>
-<p><img src="../resources/userMan/user02.png" alt="func_selection"></p>
-<h2 id="3-機能種別選択">3 機能種別選択</h2>
-<p><img src="../resources/userMan/user03.png" alt="func_type_selection"></p>
-<h2 id="3-1-仮想都市の場合">3-1 仮想都市の場合</h2>
-<h3 id="3-1-1-一般パラメータ設定仮想都市200200mグリッド">3-1-1 一般パラメータ設定（仮想都市:200*200mグリッド）</h3>
-<p>生成スタイル（Randomseed）を設定します。</p>
-<p><img src="../resources/userMan/user04.png" alt="set_seed"></p>
-<h3 id="3-1-2-詳細パラメータ設定仮想都市">3-1-2 詳細パラメータ設定（仮想都市）</h3>
-<p>各地物のパラメータ設定：対象地物（建築物、道路、植生、都市設備、地形）別に、LOD（詳細レベル）、地物固有のパラメータを設定します。</p>
-<p><img src="../resources/userMan/user05.png" alt="set_param"></p>
-<h3 id="3-1-3実行をクリックすると生成が開始されます">3-1-3「実行」をクリックすると生成が開始されます。</h3>
-<p><img src="../resources/userMan/user06.png" alt="run"></p>
-<h2 id="3-2-モデル生成仮想都市約5分かかります">3-2 モデル生成:（仮想都市）※約5分かかります</h2>
-<p><img src="../resources/userMan/user07.png" alt="generate"></p>
-<h2 id="3-3-データ出力可視化仮想都市">3-3 データ出力・可視化（仮想都市）</h2>
-<p>①設定内容を確認できます。
-②可視化: ツール内で直接生成された3D都市モデルを閲覧（ズーム，回転）できます。</p>
-<p><img src="../resources/userMan/user08.png" alt="vis"></p>
-<h2 id="4-1-実際都市の場合">4-1 実際都市の場合</h2>
-<h3 id="4-1-1-一般パラメータ設定実際の都市">4-1-1 一般パラメータ設定（実際の都市）</h3>
-<p>①データ入力：生成したい建物のフットプリントデータ（GeoJSON形式）を選択します。</p>
-<p>②生成スタイル：ScaleとRandom seedを設定します。</p>
-<p>③出力フォルダ指定：出力される3D都市モデルのファイルの保存先を指定します。</p>
-<p><img src="../resources/userMan/user09.png" alt="set_gen_real_param"></p>
-<h3 id="4-1-2-詳細パラメータ設定実際の都市">4-1-2 詳細パラメータ設定（実際の都市）</h3>
-<p>①リファレンスデータ入力：対象地域の衛星画像（TIFF形式）を選択します。</p>
-<p>②各地物のパラメータ設定：対象地物（建築物、道路、植生、都市設備、地形）別に、LOD（詳細レベル）、地物固有のパラメータを設定します。</p>
-<p><img src="../resources/userMan/user10.png" alt="set_detail_real_param1"></p>
-<p>③”実行”をクリックすると生成が開始されます。</p>
-<p><img src="../resources/userMan/user11.png" alt="set_detail_real_param2"></p>
-<h2 id="4-2-モデル生成実際の都市約40分かかります">4-2 モデル生成：（実際の都市）※約40分かかります</h2>
-<p>モデル生成プロセスを開始します。入力データとパラメータに基づいて自動的に3D都市モデルを生成します。</p>
-<p><img src="../resources/userMan/user12.png" alt="set_detail_real_param2"></p>
-<h2 id="4-3-データ出力可視化実際の都市">4-3 データ出力・可視化（実際の都市）</h2>
-<p>①設定内容を確認できます。
-②可視化：ツール内で直接生成された3D都市モデルを閲覧（ズーム，回転）できます。</p>
-<p><img src="../resources/userMan/user13.png" alt="set_detail_real_param2"></p>
+<a href="http://gen3d.sekilab.global/">http://gen3d.sekilab.global/</a></p>
+<p><img src="../resources/userMan/fig02.png" alt="func_selection"></p>
+<h2 id="2-機能種別選択">2 機能種別選択</h2>
+<p><img src="../resources/userMan/fig03.png" alt="func_type_selection"></p>
+<h2 id="3-沿道パラメータ抽出">3 沿道パラメータ抽出</h2>
+<p>抽出ルートを設定します。実行は約40分かかります。</p>
+<p><img src="../resources/userMan/fig04.png" alt="set_route"></p>
+<h2 id="4-三次元都市モデル生成">4 三次元都市モデル生成</h2>
+<p>衛星画像を入力し(.tif)、生成LoDを設定ます。実行は約10-15分かかります。</p>
+<p><img src="../resources/userMan/fig05.png" alt="set_lod_input"></p>
+<h2 id="5-生成結果可視化">5 生成結果可視化</h2>
+<p><img src="../resources/userMan/fig06.png" alt="vis_output"></p>
+<p>①入力衛星画像。
+②生成結果可視化：ツール内で直接生成された3D都市モデルを閲覧（ズーム，回転）できます。</p>
 
 </article>
           </div>
