@@ -54,61 +54,60 @@
    - 生成した3D都市モデルはツール上で可視化されます。
 
 ## 5. 利用技術
+| 種別         | 名称                                                                                                        | バージョン  | 内容                                                                                                              |
+| ------------ | ----------------------------------------------------------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------- |
+| ソフトウェア | [PyCharm Community](https://www.jetbrains.com/pycharm/)                                                     | -           | Pythonで開発する際に使用するソフトウェア                                                                            |
+|              | [Visual Studio Code](https://code.visualstudio.com/)                                                        | -           | C++で開発する際に使用するソフトウェア                                                                               |
+|              | [Feature Manipulation Engine (FME)](https://www.safe.com/fme/)                                                | -           | 建物GMLファイルをOBJに変換する際に使用するソフトウェア                                                                |
+| ライブラリ   | [Computational Geometry Algorithms Library (CGAL)](https://www.cgal.org/)                                   | -           | メッシュを生成、最適化する際に使用するライブラリ                                                                      |
+|              | [OpenCV](https://opencv.org/)                                                                                 | 4.7.0.72    | 二次元画像データに関する処理に効果的なライブラリ                                                                     |
+|              | [Point Cloud Library (PCL)](http://pointclouds.org/)                                                        | -           | 三次元点群データに関する処理に効果的なライブラリ                                                                     |
+|              | [CCCoreLib](https://github.com/lopezbec/CCCoreLib)                                                   | -           | 建物OBJファイルを点群にサンプリングする際に使用するライブラリ                                                          |
+|              | [PyTorch](https://pytorch.org/)                                                                               | 2.5.0       | 生成的モデルの実行に必要となり、基本的な深層学習モジュールも提供されるライブラリ                                        |
+|              | [torchvision](https://pytorch.org/vision/stable/)                                                             | 0.20.0      | 画像の読み込み、前処理、モデル訓練、評価などのタスクを簡素化するライブラリ                                             |
+|              | [cudatoolkit](https://developer.nvidia.com/cuda-toolkit)                                                      | -           | GPU高速計算をサポートし、CUDAプログラミングや複数GPUでの並列処理を実現するライブラリ                                   |
+|              | [conda-forge](https://conda-forge.org/)                                                                       | -           | Conda環境におけるバージョン管理、環境隔離、クロスプラットフォーム互換性などを実現するライブラリ                           |
+|              | [yacs](https://github.com/rbgirshick/yacs)                                                                     | -           | 設定ファイルを定義・管理するためのライブラリ                                                                         |
+|              | [pyyaml](https://pyyaml.org/)                                                                                 | -           | YAML形式のデータを読み込み、修正し、書き込むために使用されるライブラリ                                                 |
+|              | [scipy](https://www.scipy.org/)                                                                               | 1.9.1       | numpyに基づく科学計算ライブラリ。線形代数、積分・微分方程式、信号処理などの数学アルゴリズムを提供                      |
+|              | [numpy](https://numpy.org/)                                                                                   | -           | 大量の次元配列と行列演算をサポートするライブラリ                                                                       |
+|              | [openmim](https://github.com/open-mmlab/OpenMIM)                                                              | -           | OpenMMLabコミュニティ開発のコマンドラインツール。機械学習モデルやアルゴリズムライブラリの管理を簡素化する                  |
+|              | [mmcv-full](https://github.com/open-mmlab/mmcv)                                                               | 2.2.0       | コンピュータビジョン研究と深層学習プロジェクトの基本機能とツールを提供し、CUDA操作をサポートするライブラリ                 |
+|              | [mmsegmentation](https://github.com/open-mmlab/mmsegmentation)                                                 | -           | 深層学習による画像分割モデルの訓練と推論フレームワークを提供するオープンソースのセグメンテーションライブラリ             |
+|              | [mmdet](https://github.com/open-mmlab/mmdetection)                                                             | -           | 目標検出ライブラリ。深層学習による画像分割モデルの訓練と推論フレームワークの提供に特化している                           |
+|              | [timm](https://github.com/rwightman/pytorch-image-models)                                                    | 0.6.11      | PyTorchに基づく深層学習画像モデルライブラリ。多数の現代の画像認識・分類モデルの実装が含まれている                         |
+|              | [gdal](https://gdal.org/)                                                                                     | 3.4.1       | 多様な空間データ形式を読み書きするために使用されるライブラリ                                                           |
+|              | [ogr](https://gdal.org/) *(GDALのサブセット)*                                                                 | -           | GDALのサブセット。ベクターデータの処理に特化している                                                                |
+|              | [pandas](https://pandas.pydata.org/)                                                                          | 1.5.3       | 高性能で使いやすいデータ構造とデータ分析ツール。DataFrameやSeriesをサポートし、CSV、Excel、JSON、HTMLなどの処理が可能    |
+|              | [geopandas](https://geopandas.org/)                                                                           | 0.10.2      | pandasを拡張し、地理空間データの処理に特化したライブラリ                                                              |
+|              | [shapely](https://shapely.readthedocs.io/)                                                                    | -           | 平面オブジェクトの作成、空間分析、トポロジー分析機能を含むライブラリ                                                   |
+|              | [argparse](https://docs.python.org/3/library/argparse.html)                                                   | -           | Python標準ライブラリ。プログラム実行時のオプションとパラメータを指定可能にする                                        |
+|              | [albumentations](https://github.com/albumentations-team/albumentations)                                        | -           | 画像の前処理とデータ拡張のために設計されたライブラリ                                                                   |
+|              | [pytorch-lightning](https://www.pytorchlightning.ai/)                                                         | -           | PyTorchの複雑さを簡素化することを目指す高度な深層学習フレームワーク                                                   |
+|              | [omegaconf](https://omegaconf.readthedocs.io/)                                                                  | -           | 軽量な設定ライブラリ。YAMLやJSONなどの設定ファイルのマージ、補間、型チェック機能を提供                                |
+|              | [test-tube](https://github.com/wandb/test-tube)                                                                | -           | 機械学習実験の結果追跡・整理・分析、ハイパーパラメータの最適化と実験のバージョン管理をサポート                          |
+|              | [einops](https://github.com/arogozhnikov/einops)                                                                | -           | テンソル操作とリシェイプを直感的に行うためのライブラリ。多次元データの再配置、次元変換、スケーリングを処理                  |
+|              | [transformers](https://huggingface.co/transformers)                                                           | 4.38.2      | 自然言語処理（NLP）ライブラリ。BERT、GPT、RoBERTaなどの事前訓練済みモデルの実装を提供                                 |
+|              | [kornia](https://github.com/kornia/kornia)                                                                     | -           | PyTorchに基づくコンピュータビジョンライブラリ。微分可能な視覚変換関数を提供し、GPU加速と自動微分をサポート                  |
+|              | [open_clip_torch](https://github.com/mlfoundations/open_clip)                                                 | -           | OpenAI CLIPに似た機能を提供するPyTorchベースのライブラリ。自然言語プロンプトを用いた画像検索・理解を実現                  |
+|              | [torchmetrics](https://torchmetrics.readthedocs.io/)                                                          | -           | モデル評価用の標準指標（正確性、精度、再現率など）を提供し、性能評価を統一するライブラリ                                |
+|              | [addict](https://github.com/mewwts/addict)                                                                     | -           | Pythonのdictを拡張し、属性アクセスで動的にネストされたdictを扱いやすくするライブラリ                                   |
+|              | [yapf](https://github.com/google/yapf)                                                                         | -           | Pythonコードフォーマットツール。PEP 8スタイルに準拠し、コードの可読性と一貫性を向上させる                              |
+|              | [trimesh](https://github.com/mikedh/trimesh)                                                                   | 4.5.3       | 三次元メッシュの読み込み、処理、表示、分析を行うライブラリ。多様なファイル形式に対応                                |
+|              | [random](https://docs.python.org/3/library/random.html)                                                       | -           | 擬似乱数生成ライブラリ。整数、浮動小数点数、シーケンスから要素選択、ランダムな文字生成を提供                       |
+|              | [lxml](https://lxml.de/)                                                                                       | 5.1.0       | XML及びHTMLドキュメントの解析用ライブラリ。迅速なアクセス、修正、作成が可能                                          |
+|              | [earcut](https://github.com/mapbox/earcut)                                                                     | 1.1.5       | 軽量な多角形三角形分割ツール。複雑な多角形を三角形メッシュに変換する際に使用                                          |
+|              | [math](https://docs.python.org/3/library/math.html)                                                            | -           | Python標準ライブラリ。一連の数学関数と定数を提供（例：三角関数、対数関数、指数関数など）                               |
+|              | [detectron2](https://github.com/facebookresearch/detectron2)                                                   | -           | 画像認識や物体検出モデルの構築に使用するライブラリ                                                                   |
+|              | [onnx](https://onnx.ai/)                                                                                       | -           | 深層学習モデルの相互運用性を実現するためのオープンフォーマット                                                       |
+|              | [onnxruntime](https://www.onnxruntime.ai/)                                                                     | 1.14.1      | ONNX形式の深層学習モデルの高速推論に使用するランタイム                                                              |
+|              | [xgboost](https://xgboost.readthedocs.io/)                                                                     | 1.6.2       | 勾配ブースティングを用いた機械学習モデルの構築に使用するライブラリ                                                    |
+|              | [classifier_free_guidance_pytorch](https://github.com/cloneofsimo/classifier-free-guidance-pytorch)             | 0.6.10      | 生成モデルのガイダンスにおいてクラス分類を使用しない手法を実装するためのPyTorchライブラリ                              |
+|              | [open3d](http://www.open3d.org/)                                                                               | 0.19.0      | 3次元データの処理や可視化に使用するライブラリ                                                                        |
+|              | [sentencepiece](https://github.com/google/sentencepiece)                                                     | 0.2.0       | 自然言語処理におけるサブワード単位のトークン化を実現するライブラリ                                                     |
+|              | [optimum](https://github.com/huggingface/optimum)                                                              | 1.23.2      | Transformerモデル等の機械学習モデルの推論最適化に使用するライブラリ                                                   |
+|              | [triangle](https://www.cs.cmu.edu/~quake/triangle.html)                                                       | -           | 2次元メッシュ生成および最適な三角分割を実現するために使用するライブラリ                                               |
 
-| ID | 名称 | 内容 |
-| --- | --- | --- |
-| 1 | PyCharm Community | Pythonで開発する際に使用するソフトウェア |
-| 2 | Visual Studio Code | C++で開発する際に使用するソフトウェア |
-| 3 | Feature Manipulation Engine (FME) | 建物GMLファイルをOBJに変換する際に使用するソフトウェア |
-| 4 | Computational Geometry Algorithms Library (CGAL) | メッシュを生成、最適化する際に使用するライブラリ |
-| 5 | OpenCV | 二次元画像データに関する処理に効果的なライブラリ |
-| 6 | Point Cloud Library (PCL) | 三次元点群データに関する処理に効果的なライブラリ |
-| 7 | CCCoreLib | 建物OBJファイルを点群にサンプリングする際に使用するライブラリ |
-| 8 | PyTorch | 生成的モデルの実行に必要となり、基本的な深層学習モジュールも提供されるライブラリ |
-| 9 | torchvision | ツールと方法を提供し、画像の読み込み、前処理、モデル訓練、評価などのタスクを簡素化するライブラリ |
-| 10 | cudatoolkit | GPU高速計算をサポートし、CUDAプログラミングを行い、複数のGPUでの並列アルゴリズムとデータ構造を実現するためのライブラリ |
-| 11 | conda-forge | Conda環境において、バージョン管理、環境隔離、クロスプラットフォーム互換性、統合開発環境を実現するライブラリ |
-| 12 | yacs | コンピュータビジョンプロジェクトにおいて、設定ファイルを定義し管理するためのライブラリ |
-| 13 | pyyaml | YAML形式のデータを読み込み、修正し、書き込むために使用されるライブラリ |
-| 14 | scipy | numpyに基づくオープンソースの科学計算ライブラリで、科学、技術、工学分野に多くの数学アルゴリズムを提供している。例として、線形代数、積分と微分方程式、信号処理などが含まれる |
-| 15 | numpy | 大量の次元配列と行列演算をサポートするために使用される |
-| 16 | openmim | OpenMMLab コミュニティによって開発されたコマンドラインツール、機械学習モデルやアルゴリズムライブラリの管理と使用プロセスを簡素化することを目的としている |
-| 17 | mmcv-full | OpenMMLabプロジェクトを統合するため、コンピュータビジョン研究と深層学習プロジェクトのための一連の基本機能とツールを提供し、CUDA操作をサポートするライブラリ |
-| 18 | mmsegmentation | OpenMMLabコミュニティによって開発されたオープンソースのセグメンテーションライブラリ、深層学習による画像分割モデルの訓練と推論フレームワークの提供に特化している |
-| 19 | mmdet | OpenMMLabコミュニティによって開発されたオープンソースの目標検出ライブラリで、深層学習による画像分割モデルの訓練と推論フレームワークの提供に特化している |
-| 20 | timm | PyTorchに基づく深層学習画像モデルライブラリで、多数の現代の画像認識・分類モデルの実装が含まれており、最新の研究成果を含めて継続的に更新されている |
-| 21 | gdal | 多様な空間データ形式を読み書きするために使用されるライブラリ |
-| 22 | ogr | GDALのサブセットで、ベクターデータの処理に特化している |
-| 23 | pandas | 高性能で使いやすいデータ構造とデータ分析ツールを提供し、DataFrameやSeriesなどをサポートし、CSV、Excel、JSON、HTMLなどのデータの処理が可能なライブラリ |
-| 24 | geopandas | pandasに基づく拡張で、地理空間データの処理に特化しているライブラリ |
-| 25 | shapely | 平面オブジェクト（Points、Lines、Polygonなど）の処理に使用され、平面オブジェクトの作成、空間分析、トポロジー分析機能を含むライブラリ |
-| 26 | argparse | プログラム実行時のオプションとパラメータをユーザーが指定できるようにするPythonの標準ライブラリ |
-| 27 | albumentations | 深層学習および機械学習における画像の前処理とデータ拡張のために設計されたライブラリ |
-| 28 | pytorch-lightning | PyTorchの複雑さを簡素化することを目指す高度な深層学習フレームワーク |
-| 29 | omegaconf | 軽量な設定ライブラリ、YAMLやJSONなどの設定ファイルを扱い、強力なマージ、補間、および型チェック機能を提供し、設定管理を簡単かつ柔軟にする |
-| 30 | test-tube | 機械学習の実験結果を追跡、整理、分析するためのライブラリ、ハイパーパラメータの最適化と実験のバージョン管理をサポートする |
-| 31 | einops | テンソル操作とリシェイプをより直感的で柔軟に行うためのPythonライブラリ。多次元データの再配置、次元変換、スケーリングを処理するための簡潔な表現方法を提供する |
-| 32 | transformers | オープンソースの自然言語処理（NLP）ライブラリ。BERT、GPT、RoBERTaなどの多数の事前訓練済みモデルの実装を提供し、テキスト分類、生成、翻訳などの多様なNLPタスクに使用され、迅速なデプロイと使いやすいAPIをサポートする |
-| 33 | kornia | PyTorchに基づくオープンソースのコンピュータビジョンライブラリ。一連の微分可能な視覚変換関数を提供し、画像処理、強化、特徴抽出などの操作を実現し、GPU加速と自動微分をサポートする |
-| 34 | open_clip_torch | PyTorchに基づくオープンソースライブラリ。OpenAI CLIPに似た機能を提供し、自然言語のプロンプトを通じて画像を検索・理解できるようにすることを目的としており、多様な事前訓練モデルとカスタマイズ可能な訓練プロセスをサポートする |
-| 35 | torchmetrics | PyTorchに基づく機械学習の指標ライブラリ。モデル評価用の標準指標（正確性、精度、再現率など）を一連提供し、モデル性能評価プロセスを簡素化し統一することを目的としている |
-| 36 | addict | Pythonのdictを拡張したライブラリ。属性アクセスを通じて動的にネストされたdictを作成およびアクセスできる使いやすいインターフェースを提供し、dict操作の複雑さを簡素化する |
-| 37 | yapf | Pythonコードフォーマットツール。PEP 8スタイルガイドに準拠するようにPythonコードを自動的に再フォーマットし、コードの可読性と一貫性を向上させることを目的とする |
-| 38 | trimesh | 三次元メッシュの読み込み、処理、表示、分析を行うためのライブラリ。多様なファイル形式に対応し、三次元幾何データを扱うためのシンプルなインターフェースを提供する |
-| 39 | random | 擬似乱数を生成するためのライブラリ。整数、浮動小数点数、シーケンスからの要素の選択、ランダムな文字の生成など、さまざまな乱数生成器を提供する |
-| 40 | lxml | XMLおよびHTMLドキュメントを解析するために使用されるライブラリ。XMLおよびHTMLコンテンツに迅速にアクセス、修正、作成するためのシンプルで使いやすいAPIを提供する |
-| 41 | earcut | 軽量な多角形三角形分割ツール。複雑な多角形を三角形メッシュに変換するために使用され、グラフィックレンダリングや地理情報システム（GIS）データ処理によく使用される |
-| 42 | math | 一連の数学関数と定数を提供し、浮動小数点数の数学演算を実行するために使用されるライブラリ。これには、三角関数、対数関数、指数関数などが含まれる |
-| 43 | detectron2 | 画像認識や物体検出モデルの構築に使用するライブラリ |
-| 44 | onnx | 深層学習モデルの相互運用性を実現するために使用するオープンフォーマット |
-| 45 | onnxruntime | ONNX形式の深層学習モデルの高速推論に使用するランタイム |
-| 46 | xgboost | 勾配ブースティングを用いた機械学習モデルの構築に使用するライブラリ |
-| 47 | transformers | 自然言語処理におけるTransformerモデルの活用に使用するライブラリ |
-| 48 | classifier_free_guidance_pytorch | 生成モデルのガイダンスにおいてクラス分類を使用しない手法を実装するためのPyTorchライブラリ |
-| 49 | open3d | 3次元データの処理や可視化に使用するライブラリ |
-| 50 | sentencepiece | 自然言語処理におけるサブワード単位のトークン化を実現するライブラリ |
-| 51 | optimum | Transformerモデルなどの機械学習モデルの推論最適化に使用するライブラリ |
-| 52 | triangle | 2次元メッシュ生成および最適な三角分割を実現するために使用するソフトウェア |
 
 
 ## 6. 動作環境
@@ -145,5 +144,7 @@
 - 本リポジトリの利用により生じた損失及び損害等について、国土交通省はいかなる責任も負わないものとします。
 
 ## 10. 参考資料
-
-- PLATEAU Webサイトの Use Case ページ「3D都市モデル生成シミュレータ」: [http://gen3d.sekilab.global/](https://www.mlit.go.jp/plateau/use-case/dt23-06/)
+関連する論文
+- [MeshXL](https://arxiv.org/abs/2405.20853)
+- [MeshGPT](https://arxiv.org/abs/2311.15475)
+- [MeshAnything](https://arxiv.org/abs/2406.10163)
