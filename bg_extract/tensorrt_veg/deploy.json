@@ -1,0 +1,16 @@
+{
+    "version": "0.14.0",
+    "task": "Segmentor",
+    "models": [
+        {
+            "name": "uper",
+            "net": "end2end.engine",
+            "weights": "",
+            "backend": "tensorrt",
+            "precision": "FP32",
+            "batch_size": 1,
+            "dynamic_shape": false
+        }
+    ],
+    "customs": []
+}
