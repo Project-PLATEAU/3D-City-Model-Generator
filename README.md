@@ -1,6 +1,6 @@
 # 3D都市モデル生成シミュレータ
 
-![image](res_examples/fig01.png)
+![image1](res_examples/fig01.png)
 
 ## 1. 概要
 
