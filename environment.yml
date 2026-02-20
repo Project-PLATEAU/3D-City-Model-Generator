@@ -1,0 +1,7 @@
+name: gen3d_UI_2025
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+prefix: /home/mdxuser/anaconda3/envs/gen3d_UI_2025

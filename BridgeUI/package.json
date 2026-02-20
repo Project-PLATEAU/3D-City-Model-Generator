@@ -1,0 +1,38 @@
+{
+  "name": "bridgeui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "cleanup": "node scripts/cleanup.js",
+    "dev": "npm run cleanup && vite",
+    "dev:full": "npm run cleanup && concurrently \"python backend/start-backend.py\" \"vite\"",
+    "backend": "python backend/start-backend.py",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "geotiff": "^2.1.4-beta.0",
+    "lucide-react": "^0.513.0",
+    "mapbox-gl": "^3.12.0",
+    "proj4": "^2.19.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-icons": "^5.5.0",
+    "three": "^0.178.0",
+    "threebox-plugin": "^2.2.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^8.2.2",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "vite": "^6.3.5"
+  }
+}
