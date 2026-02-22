@@ -1,5 +1,5 @@
 {
-  "source_base_path": "C:/zcb/code/python/local/3D-City-Model-Generator/markdown",
+  "source_base_path": "/fast/cbzhao/data/plateau/bridge2025/code/3D-City-Model-Generator/markdown",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -239,6 +239,16 @@
       "output": {
         "resource": {
           "relative_path": "resources/fig01.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/fig03.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/fig03.png"
         }
       },
       "version": ""
