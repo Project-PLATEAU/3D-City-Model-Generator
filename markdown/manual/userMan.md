@@ -6,36 +6,39 @@
 
 ### 3D都市モデル生成までの流れ
 
-![total_workflow](../resources/userMan/fig01.png)
+![total_workflow](../resources/fig04.png)
 
-## 1 機能選択
+## 1 都市LOD1モデル生成
 
-① デジタルシティサービスにアクセスし、“3D都市モデル生成シュミレーター”をクリックし、生成を行う画面へ移動
-http://gen3d.sekilab.global/
+デジタルシティサービスにアクセスし、生成を行う画面へ移動
+http://localhost:8080
 
-![func_selection](../resources/userMan/fig02.png)
+![func_selection](../resources/fig01.png)
 
-## 2 機能種別選択
+①建物フットプリントをアップロード
+②範囲内のLOD1モデルを生成・可視化
 
-![func_type_selection](../resources/userMan/fig03.png)
+![lod1_gen](../resources/fig05.png)
 
-## 3 沿道パラメータ抽出
+## 2 都市LOD2モデル生成
 
-抽出ルートを設定します。実行には約40分かかります。
+①衛星画像をアップロード
+②範囲内のLOD2モデルを生成・可視化
 
-![set_route](../resources/userMan/fig04.png)
+![lod2_gen](../resources/fig06.png)
 
-## 4 三次元都市モデル生成
+## 3 都市LOD3モデル生成
 
-衛星画像を入力し(.tif)、生成するLoDを設定します。実行には約10-15分かかります。
+①街路画像とMMS点群をアップロード
+②範囲内のLOD3モデルを生成・可視化
 
-![set_lod_input](../resources/userMan/fig05.png)
+![lod3_gen](../resources/fig07.png)
 
-## 5 生成結果可視化
+## 4 可視化Layerの選択
 
-![vis_output](../resources/userMan/fig06.png)
+表示する生成結果を選択（LOD別、BMQI可視化など）
 
-①入力衛星画像。
-②生成結果可視化：ツール内で直接生成された3D都市モデルを閲覧（ズーム，回転）できます。
+![layer_setting](../resources/fig08.png)
+
 
 
