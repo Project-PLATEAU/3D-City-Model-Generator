@@ -315,6 +315,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "resources/fig09.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/fig09.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "resources/index1.png",
       "output": {
         "resource": {

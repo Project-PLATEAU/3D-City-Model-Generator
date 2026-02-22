@@ -13,7 +13,7 @@
 デジタルシティサービスにアクセスし、生成を行う画面へ移動
 http://localhost:8080
 
-![func_selection](../resources/fig01.png)
+![func_selection](../resources/fig09.png)
 
 ①建物フットプリントをアップロード
 ②範囲内のLOD1モデルを生成・可視化
