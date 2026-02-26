@@ -182,33 +182,32 @@ sudo dpkg -i cloudflared-linux-amd64.deb
 <tr>
 <td>①</td>
 <td>生成AI建物生成モデル</td>
-<td>建物生成（実都市）</td>
+<td>建物生成</td>
 <td>.ckpt</td>
 </tr>
 <tr>
 <td>②</td>
 <td>深層学習植生自動抽出モデル</td>
-<td>植生生成（実都市）</td>
+<td>植生生成</td>
 <td>.onnx</td>
 </tr>
 <tr>
 <td>③</td>
 <td>深層学習MMS点群開口部自動抽出モデル</td>
-<td>LOD3生成（実都市）</td>
+<td>LOD3生成</td>
 <td>.pt</td>
 </tr>
 <tr>
 <td>④</td>
 <td>深層学習街路画像開口部自動抽出モデル</td>
-<td>LOD3生成（実都市）</td>
+<td>LOD3生成</td>
 <td>.pt</td>
 </tr>
 </tbody>
 </table>
 <p>モデルの置く場所は既にBridge2025UI.zipで配置完了しています：</p>
 <h1 id="5-プログラム実行">5 プログラム実行</h1>
-<p>ツールの起動について
-フロントエンド環境を構築し、アプリケーションを起動するために、既存の依存関係を一度削除したうえで再インストールし、ビルドおよび開発用サーバーを起動します。</p>
+<p>ツールを起動するには、まずフロントエンド環境を構築します。次に、既存の依存関係を一度削除してから再インストールを行い、その後ビルドを実行し、開発用サーバーを起動します。</p>
 <pre><code>rm -rf node_modules package-lock.json
 npm install
 npm run build
