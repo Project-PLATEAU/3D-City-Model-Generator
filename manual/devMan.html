@@ -208,7 +208,9 @@ sudo dpkg -i cloudflared-linux-amd64.deb
 <p>モデルの置く場所は既にBridge2025UI.zipで配置完了しています：</p>
 <h1 id="5-プログラム実行">5 プログラム実行</h1>
 <p>ツールを起動するには、まずフロントエンド環境を構築します。次に、既存の依存関係を一度削除してから再インストールを行い、その後ビルドを実行し、開発用サーバーを起動します。</p>
-<pre><code>rm -rf node_modules package-lock.json
+<pre><code>conda activate gen3d_UI_2025
+cd BridgeUI
+rm -rf node_modules package-lock.json
 npm install
 npm run build
 npm run dev:full

@@ -91,6 +91,8 @@ Bridge2025UIは下記の機械学習と深層学習のモデルが含まれて�
 ツールを起動するには、まずフロントエンド環境を構築します。次に、既存の依存関係を一度削除してから再インストールを行い、その後ビルドを実行し、開発用サーバーを起動します。
 
 ```
+conda activate gen3d_UI_2025
+cd BridgeUI
 rm -rf node_modules package-lock.json
 npm install
 npm run build
