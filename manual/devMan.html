@@ -218,6 +218,118 @@ npm run dev:full
 <p>ローカルサーバーを外部公開するため、以下のコマンドを実行します。</p>
 <pre><code>cloudflared tunnel --url http://localhost:8080 --protocol http2
 </code></pre>
+<h1 id="6-本ツールを利用するにあたりユーザが準備する入力データ">6 本ツールを利用するにあたりユーザが準備する入力データ</h1>
+<p>本ツールを用いて 3D 都市モデルを生成するためには、以下の入力データをユーザ側で準備する必要があります。</p>
+<ul>
+<li>衛星画像データ</li>
+<li>建物フットプリントデータ</li>
+<li>MMS（Mobile Mapping System）データ</li>
+</ul>
+<p>各データの仕様を以下に示します。</p>
+<hr>
+<h2 id="61-衛星画像データ">6.1 衛星画像データ</h2>
+<h3 id="1概要">（1）概要</h3>
+<p>衛星画像は、建築物モデル生成における基礎データとなります。</p>
+<h3 id="2推奨仕様">（2）推奨仕様</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>推奨条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解像度</td>
+<td>0.3m 以下</td>
+</tr>
+<tr>
+<td>バンド</td>
+<td>RGB（マルチスペクトル対応可）</td>
+</tr>
+<tr>
+<td>投影座標系</td>
+<td>平面直角座標系 または UTM</td>
+</tr>
+<tr>
+<td>データ形式</td>
+<td>GeoTIFF</td>
+</tr>
+<tr>
+<td>幾何補正</td>
+<td>オルソ補正済み</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="62-建築物フットプリントデータ">6.2 建築物フットプリントデータ</h2>
+<h3 id="1概要-1">（1）概要</h3>
+<p>建築物のフットプリントは、3D 都市モデル生成の基礎となるポリゴンデータです。</p>
+<h3 id="2推奨仕様-1">（2）推奨仕様</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>推奨条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>データ形式</td>
+<td>GeoJSON</td>
+</tr>
+<tr>
+<td>ジオメトリ</td>
+<td>ポリゴン</td>
+</tr>
+<tr>
+<td>トポロジ</td>
+<td>自己交差なし</td>
+</tr>
+<tr>
+<td>座標系</td>
+<td>衛星画像と同一</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="63-mmsmobile-mapping-systemデータ">6.3 MMS（Mobile Mapping System）データ</h2>
+<h3 id="1概要-2">（1）概要</h3>
+<p>MMS データは、建築物の LOD3 モデル生成時の開口部（窓・扉）、都市設備、植生抽出に利用します。</p>
+<h3 id="2利用可能データ種別">（2）利用可能データ種別</h3>
+<ul>
+<li>沿道画像（全周画像または前方画像）</li>
+<li>三次元点群（LiDAR）</li>
+<li>位置情報（IMU）</li>
+</ul>
+<h3 id="3推奨仕様">（3）推奨仕様</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>推奨条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>点群密度</td>
+<td>500 点 / m² 以上推奨</td>
+</tr>
+<tr>
+<td>画像解像度</td>
+<td>4K 相当以上</td>
+</tr>
+<tr>
+<td>位置精度</td>
+<td>水平誤差 10cm 以下</td>
+</tr>
+<tr>
+<td>データ形式</td>
+<td>LAS / LAZ / JPEG / PNG</td>
+</tr>
+</tbody>
+</table>
+<hr>
 
 </article>
           </div>
