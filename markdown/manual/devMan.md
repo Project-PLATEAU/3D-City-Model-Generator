@@ -109,7 +109,7 @@ cloudflared tunnel --url http://localhost:8080 --protocol http2
 本ツールを用いて 3D 都市モデルを生成するためには、以下の入力データをユーザ側で準備する必要があります。
 
 - 衛星画像データ  
-- 建物フットプリントデータ  
+- 建築物フットプリントデータ  
 - MMS（Mobile Mapping System）データ  
 
 各データの仕様を以下に示します。
@@ -126,7 +126,7 @@ cloudflared tunnel --url http://localhost:8080 --protocol http2
 
 | 項目 | 推奨条件 |
 |------|----------|
-| 解像度 | 0.3m 以下 |
+| 解像度 | 0.3m 以上 |
 | バンド | RGB（マルチスペクトル対応可） |
 | 投影座標系 | 平面直角座標系 または UTM |
 | データ形式 | GeoTIFF |
