@@ -21,7 +21,7 @@
 ## データとモデル準備
 
 本システムでは、大容量の深層学習モデルファイルを多数扱うため、すべてのモデルファイルをGitHubに含めることができません。したがって、以下のURLより、あらかじめ構成されたモデルファイル一式をダウンロードする必要があります。  
-[モデルファイルのダウンロード](https://drive.google.com/file/d/12Bkigvs7AwAYoMlXShPEXqveXZu_tyAp/view?usp=sharing)
+[モデルファイルのダウンロード](https://www.geospatial.jp/ckan/dataset/3daiready)
 
 ## python環境の構築
 
