@@ -1,0 +1,7 @@
+flask==2.3.3
+flask-cors==4.0.0
+werkzeug==2.3.7
+
+torch==2.4.1
+torchvision==0.19.1
+trimesh==4.4.9

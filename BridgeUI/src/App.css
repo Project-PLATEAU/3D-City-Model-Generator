@@ -1,0 +1,54 @@
+/* Mapbox GL CSS Import - MUST come first */
+@import 'mapbox-gl/dist/mapbox-gl.css';
+
+/* Import Layout and Component Styles */
+@import './styles/Layout.css';
+@import './styles/Components.css';
+
+/* App-specific styles */
+.App {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Custom Mapbox Control Styles */
+.mapboxgl-ctrl-group {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.mapboxgl-ctrl-group button {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+.mapboxgl-ctrl-group button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Hide default Mapbox attribution */
+.mapboxgl-ctrl-attrib {
+  opacity: 0.9;
+  font-size: 10px;
+}
+
+/* Loading State */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-text {
+  color: #ffffff;
+  font-size: 16px;
+}

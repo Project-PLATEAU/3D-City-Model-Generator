@@ -1,0 +1,180 @@
+/* Main App Container */
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Map Container - Background */
+.map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.mapboxgl-map {
+  width: 100%;
+  height: 100%;
+}
+
+/* UI Overlay Container */
+.ui-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Allow interactions on specific UI elements */
+.ui-overlay > * {
+  pointer-events: auto;
+}
+
+/* Top Toolbar */
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 66px;
+  background: #222;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.toolbar > * {
+  height: 26px;
+  display: flex;
+  align-items: center;
+}
+
+/* Left Layer Panel */
+.layer-panel {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  width: 280px;
+  max-height: calc(100vh - 120px);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+  z-index: 15;
+}
+
+/* Top Right Controls */
+.top-right-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 20;
+}
+
+/* Orthophoto Preview */
+.orthophoto-preview {
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  margin: 8px;
+  object-fit: cover;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Import Button */
+.import-button {
+  width: 200px;
+  height: 40px;
+  background: rgba(138, 43, 226, 0.9);
+  border: 1px solid rgba(138, 43, 226, 0.5);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.import-button:hover {
+  background: rgba(138, 43, 226, 1);
+  border-color: rgba(138, 43, 226, 0.8);
+  transform: translateY(-1px);
+}
+
+/* Bottom Right Legend */
+.legend-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px;
+  z-index: 15;
+}
+
+/* Map Overlays for Different States */
+.map-overlay-darken {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.map-overlay-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Selected Building Highlight */
+.selected-building {
+  outline: 2px solid #8A2BE2;
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .layer-panel {
+    width: calc(100vw - 40px);
+    max-height: 300px;
+  }
+  
+  .orthophoto-preview {
+    width: 150px;
+    height: 100px;
+  }
+  
+  .import-button {
+    width: 150px;
+  }
+  
+  .toolbar {
+    flex-wrap: wrap;
+  }
+}
