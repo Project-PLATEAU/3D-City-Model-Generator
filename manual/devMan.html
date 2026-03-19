@@ -115,27 +115,28 @@
 </tbody>
 </table>
 <h1 id="3-サーバー環境構築及びライブラリインストール手順">3 サーバー環境構築及びライブラリインストール手順</h1>
-<h2 id="dockerのインストール">Dockerのインストール</h2>
+<h2 id="データとモデル準備">データとモデル準備</h2>
+<p>本システムでは、大容量の深層学習モデルファイルを多数扱うため、すべてのモデルファイルをGitHubに含めることができません。したがって、以下のURLより、あらかじめ構成されたモデルファイル一式をダウンロードする必要があります。<br>
+<a href="https://www.geospatial.jp/ckan/dataset/3daiready">モデルファイルのダウンロード</a></p>
+<h2 id="python環境の構築">python環境の構築</h2>
 <p>以下のコマンドを使ってインストールします。</p>
-<pre><code>sudo apt update
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
-sudo apt update
-sudo apt install docker-ce
+<pre><code>cd Bridge2025UI
+conda env create -f environment.yml
+conda activate gen3d_UI_2025
+pip install -r requirements.txt
+pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu124
+pip install -U &quot;urllib3==1.26.18&quot;
 </code></pre>
-<h2 id="nvidiaドライバのインストール">NVIDIAドライバのインストール</h2>
-<p>DockerコンテナでGPUを使用するためには、まずNVIDIAのGPUドライバがインストールされている必要があります。以下のコマンドでドライバをインストールします。</p>
-<pre><code>sudo apt install nvidia-driver-565
+<h2 id="フロントエンド環境の構築">フロントエンド環境の構築</h2>
+<p>本システムではフロントエンドの実行環境としてNode.jsを使用します。Node.jsのバージョン管理のためにnvm（Node Version Manager）を用いて、指定バージョンをインストールし、使用環境を構築します。</p>
+<pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.zshrc
+nvm install 18
+nvm use 18
 </code></pre>
-<h2 id="nvidia-container-toolkitのインストール">NVIDIA Container Toolkitのインストール</h2>
-<p>GPUを使うために、NVIDIAのContainer Toolkitをインストールします。これにより、Dockerコンテナ内でGPUリソースを利用できるようになります。</p>
-<pre><code>distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-sudo apt-get update
-sudo apt-get install -y nvidia-docker2
-sudo systemctl restart docker
+<p>外部ネットワークへの接続やトンネル通信のためにcloudflaredを使用します。以下のコマンドにより、公式リリースからインストーラ（.debファイル）をダウンロードし、システムにインストールします。</p>
+<pre><code>wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+sudo dpkg -i cloudflared-linux-amd64.deb
 </code></pre>
 <h1 id="4-準備物一覧">4 準備物一覧</h1>
 <p>アプリケーションを利用するために以下のデータを入手します。</p>
@@ -155,23 +156,19 @@ sudo systemctl restart docker
 <td>3D都市モデル生成</td>
 <td>.zip</td>
 </tr>
-<tr>
-<td>②</td>
-<td>Dockerfile</td>
-<td>サーバー計算環境の構築</td>
-<td>Dockerfile</td>
-</tr>
 </tbody>
 </table>
 <p>データ準備完了後、下記のコマンドで.zipを解凍：</p>
-<pre><code>unzip bridge2025.zip
+<pre><code>unzip Bridge2025UI.zip
 </code></pre>
 <p>ファイル構造は以下の通りです：</p>
 <pre><code>root
-├── bridge2025
-└── Dockerfile
+├── BldgGen2025
+├── BridgeUI
+├── environment.yml
+└── requirements.txt
 </code></pre>
-<p>bridge2025は下記の機械学習と深層学習のモデルが含まれています：</p>
+<p>Bridge2025UIは下記の機械学習と深層学習のモデルが含まれています：</p>
 <table>
 <thead>
 <tr>
@@ -184,68 +181,155 @@ sudo systemctl restart docker
 <tbody>
 <tr>
 <td>①</td>
-<td>深層学習建物自動抽出モデル</td>
-<td>建物生成（仮想都市）</td>
-<td>.pth</td>
+<td>生成AI建物生成モデル</td>
+<td>建物生成</td>
+<td>.ckpt</td>
 </tr>
 <tr>
 <td>②</td>
-<td>深層学習建物屋根自動分類モデル</td>
-<td>建物生成（仮想都市）</td>
-<td>.pth</td>
+<td>深層学習植生自動抽出モデル</td>
+<td>植生生成</td>
+<td>.onnx</td>
 </tr>
 <tr>
 <td>③</td>
-<td>機械学習建物高さ自動予測モデル</td>
-<td>建物生成（共通）</td>
-<td>.json</td>
+<td>深層学習MMS点群開口部自動抽出モデル</td>
+<td>LOD3生成</td>
+<td>.pt</td>
 </tr>
 <tr>
 <td>④</td>
-<td>深層学習植生自動抽出モデル</td>
-<td>植生生成（実都市）</td>
-<td>.onnx</td>
-</tr>
-<tr>
-<td>⑤</td>
-<td>深層学習道路自動抽出モデル</td>
-<td>道路生成（実都市）</td>
-<td>.onnx</td>
-</tr>
-<tr>
-<td>⑥</td>
-<td>生成AI建物生成モデル</td>
-<td>建物生成（実都市）</td>
-<td>.ckpt</td>
+<td>深層学習街路画像開口部自動抽出モデル</td>
+<td>LOD3生成</td>
+<td>.pt</td>
 </tr>
 </tbody>
 </table>
-<p>モデルの置く場所は以下の通りです：</p>
-<pre><code>bridge2025
-├── Roof_classification_inference
-│      ├──Building_extraction
-│      │　　└──model
-│      │　　　　└──model_best.pth ①
-│      └──Roof_classification
-│       　　└──model
-│       　　　　└──best_model.pth ②
-├── Para_calc
-│      └──xgb_model_20250109-113703.json ③
-├── bg_extract
-│      ├──tensorrt_veg
-│      │　　　　└──end2end.onnx ④
-│      └──tensorrt_road
-│       　　　　└──end2end.onnx ⑤
-└── Building_Generation_Opening
-       └──BldgXL
-        　　　　└──plateau_lod2_type_mixed.pt ⑥
-</code></pre>
+<p>モデルの置く場所は既にBridge2025UI.zipで配置完了しています：</p>
 <h1 id="5-プログラム実行">5 プログラム実行</h1>
-<pre><code>docker build -t bridge2025 .
-docker run --gpus all --name bridge -it bridge2025:latest /bin/bash
-cd bridge2025
-python main.py
+<p>ツールを起動するには、まずフロントエンド環境を構築します。次に、既存の依存関係を一度削除してから再インストールを行い、その後ビルドを実行し、開発用サーバーを起動します。</p>
+<pre><code>conda activate gen3d_UI_2025
+cd BridgeUI
+rm -rf node_modules package-lock.json
+npm install
+npm run build
+npm run dev:full
 </code></pre>
+<p>ローカルサーバーを外部公開するため、以下のコマンドを実行します。</p>
+<pre><code>cloudflared tunnel --url http://localhost:8080 --protocol http2
+</code></pre>
+<h1 id="6-本ツールを利用するにあたりユーザが準備する入力データ">6 本ツールを利用するにあたりユーザが準備する入力データ</h1>
+<p>本ツールを用いて 3D 都市モデルを生成するためには、以下の入力データをユーザ側で準備する必要があります。</p>
+<ul>
+<li>衛星画像データ</li>
+<li>建築物フットプリントデータ</li>
+<li>MMS（Mobile Mapping System）データ</li>
+</ul>
+<p>各データの仕様を以下に示します。</p>
+<hr>
+<h2 id="61-衛星画像データ">6.1 衛星画像データ</h2>
+<h3 id="1概要">（1）概要</h3>
+<p>衛星画像は、建築物モデル生成における基礎データとなります。</p>
+<h3 id="2推奨仕様">（2）推奨仕様</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>推奨条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解像度</td>
+<td>0.3m 以上</td>
+</tr>
+<tr>
+<td>バンド</td>
+<td>RGB（マルチスペクトル対応可）</td>
+</tr>
+<tr>
+<td>投影座標系</td>
+<td>平面直角座標系 または UTM</td>
+</tr>
+<tr>
+<td>データ形式</td>
+<td>GeoTIFF</td>
+</tr>
+<tr>
+<td>幾何補正</td>
+<td>オルソ補正済み</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="62-建築物フットプリントデータ">6.2 建築物フットプリントデータ</h2>
+<h3 id="1概要-1">（1）概要</h3>
+<p>建築物のフットプリントは、3D 都市モデル生成の基礎となるポリゴンデータです。</p>
+<h3 id="2推奨仕様-1">（2）推奨仕様</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>推奨条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>データ形式</td>
+<td>GeoJSON</td>
+</tr>
+<tr>
+<td>ジオメトリ</td>
+<td>ポリゴン</td>
+</tr>
+<tr>
+<td>トポロジ</td>
+<td>自己交差なし</td>
+</tr>
+<tr>
+<td>座標系</td>
+<td>衛星画像と同一</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="63-mmsmobile-mapping-systemデータ">6.3 MMS（Mobile Mapping System）データ</h2>
+<h3 id="1概要-2">（1）概要</h3>
+<p>MMS データは、建築物の LOD3 モデル生成時の開口部（窓・扉）、都市設備、植生抽出に利用します。</p>
+<h3 id="2利用可能データ種別">（2）利用可能データ種別</h3>
+<ul>
+<li>沿道画像（全周画像または前方画像）</li>
+<li>三次元点群（LiDAR）</li>
+<li>位置情報（IMU）</li>
+</ul>
+<h3 id="3推奨仕様">（3）推奨仕様</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>推奨条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>点群密度</td>
+<td>500 点 / m² 以上推奨</td>
+</tr>
+<tr>
+<td>画像解像度</td>
+<td>4K 相当以上</td>
+</tr>
+<tr>
+<td>位置精度</td>
+<td>水平誤差 10cm 以下</td>
+</tr>
+<tr>
+<td>データ形式</td>
+<td>LAS / LAZ / JPEG / PNG</td>
+</tr>
+</tbody>
+</table>
+<hr>
 
 </article>
           </div>
